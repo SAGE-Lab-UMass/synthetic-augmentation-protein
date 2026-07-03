@@ -1,0 +1,40 @@
+Diagnostic 07: drug-balanced augmentation statistical tests
+==============================================================================
+metric=val_auc
+model_subdir=resnet
+alternative=greater
+excluded_drugs=none
+bootstrap_iterations=10000
+seed=42
+
+Series:
+  baseline: runs/exp0 (40 metric rows)
+  no_esm: runs_new/exp1_m1_b (40 metric rows)
+  mut0.05_0.01: runs_new/exp3_m1_0p01 (40 metric rows)
+  mut1_0.01: runs/exp3_1_m1_0p01 (40 metric rows)
+  mut1_top50: runs/exp3_1_m1_top50 (40 metric rows)
+
+Comparisons are EXPERIMENT - BASELINE:
+  no_esm - baseline: 40 paired fold rows
+  mut0.05_0.01 - baseline: 40 paired fold rows
+  mut1_0.01 - baseline: 40 paired fold rows
+  mut1_top50 - baseline: 40 paired fold rows
+  mut0.05_0.01 - no_esm: 40 paired fold rows
+  mut1_0.01 - no_esm: 40 paired fold rows
+  mut1_top50 - no_esm: 40 paired fold rows
+  mut1_0.01 - mut0.05_0.01: 40 paired fold rows
+  mut1_top50 - mut0.05_0.01: 40 paired fold rows
+  mut1_top50 - mut1_0.01: 40 paired fold rows
+
+Overall tests:
+                   comparison            hypothesis_family baseline_setting experiment_setting alternative  n_drugs  mean_drug_delta  median_drug_delta  ci95_low_drug_bootstrap  ci95_high_drug_bootstrap  exact_sign_flip_p  wilcoxon_statistic  wilcoxon_p wilcoxon_note  drugs_improved  drugs_worse  drugs_equal  percent_drugs_improved  exact_sign_flip_q_bh_global  wilcoxon_q_bh_global  exact_sign_flip_q_bh_family  wilcoxon_q_bh_family
+  mut0.05_0.01_minus_baseline      primary_esm_vs_baseline         baseline       mut0.05_0.01     greater        8         0.023812           0.018476                 0.007024                  0.045038           0.019531                33.0    0.019531                             7            1            0                    87.5                     0.097656              0.097656                     0.029297              0.029297
+    mut0.05_0.01_minus_no_esm                esm_vs_no_esm           no_esm       mut0.05_0.01     greater        8         0.014108           0.001364                -0.002940                  0.042635           0.210938                24.0    0.230469                             5            3            0                    62.5                     0.301339              0.329241                     0.210938              0.230469
+     mut1_0.01_minus_baseline      primary_esm_vs_baseline         baseline          mut1_0.01     greater        8         0.024425           0.015855                 0.007890                  0.044882           0.011719                34.0    0.011719                             7            1            0                    87.5                     0.097656              0.097656                     0.029297              0.029297
+ mut1_0.01_minus_mut0.05_0.01          within_esm_settings     mut0.05_0.01          mut1_0.01     greater        8         0.000612          -0.001600                -0.003998                  0.005551           0.406250                20.0    0.421875                             4            4            0                    50.0                     0.406250              0.421875                     0.406250              0.421875
+       mut1_0.01_minus_no_esm                esm_vs_no_esm           no_esm          mut1_0.01     greater        8         0.014721           0.001540                 0.000266                  0.040337           0.070312                29.0    0.074219                             6            2            0                    75.0                     0.175781              0.185547                     0.134766              0.222656
+    mut1_top50_minus_baseline      primary_esm_vs_baseline         baseline         mut1_top50     greater        8         0.025600           0.021018                 0.007389                  0.047907           0.031250                30.0    0.054688                             5            3            0                    62.5                     0.104167              0.182292                     0.031250              0.054688
+mut1_top50_minus_mut0.05_0.01          within_esm_settings     mut0.05_0.01         mut1_top50     greater        8         0.001788           0.003015                -0.003841                  0.006537           0.273438                23.0    0.273438                             5            3            1                    62.5                     0.341797              0.341797                     0.406250              0.421875
+   mut1_top50_minus_mut1_0.01          within_esm_settings        mut1_0.01         mut1_top50     greater        8         0.001175           0.000040                -0.003388                  0.006106           0.343750                20.0    0.421875                             4            4            0                    50.0                     0.381944              0.421875                     0.406250              0.421875
+      mut1_top50_minus_no_esm                esm_vs_no_esm           no_esm         mut1_top50     greater        8         0.015896           0.001516                -0.000117                  0.043809           0.089844                26.0    0.156250                             4            4            0                    50.0                     0.179688              0.312500                     0.134766              0.230469
+        no_esm_minus_baseline secondary_no_esm_vs_baseline         baseline             no_esm     greater        8         0.009704           0.004672                -0.003146                  0.022502           0.125000                24.0    0.230469                             4            4            0                    50.0                     0.208333              0.329241                     0.125000              0.230469

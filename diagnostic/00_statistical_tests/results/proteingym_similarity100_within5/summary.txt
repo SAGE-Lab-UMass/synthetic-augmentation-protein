@@ -1,0 +1,19 @@
+ProteinGym similarity100 within-protein 5-fold summary
+=================================================
+
+Mean protein AUC across 5 within-protein folds:
+- baseline: 0.6433 (std 0.0905, min 0.3933, max 0.8533, n=100)
+- mut1_0p01: 0.6673 (std 0.0956, min 0.4067, max 0.9413, n=100)
+- mut1_top50: 0.6709 (std 0.0947, min 0.4211, max 0.8899, n=100)
+- single_mut: 0.6661 (std 0.0946, min 0.4100, max 0.8892, n=100)
+
+Ordering:
+mut1_top50 > mut1_0p01 > single_mut > baseline
+
+Paired protein-level comparisons:
+- single_mut - baseline: mean delta +0.0228, improved 60/100, wilcoxon p=0.0007214, paired t p=0.0001529
+- mut1_0p01 - baseline: mean delta +0.0240, improved 61/100, wilcoxon p=0.0003053, paired t p=4.181e-05
+- mut1_top50 - baseline: mean delta +0.0276, improved 61/100, wilcoxon p=0.0001043, paired t p=3.746e-05
+- mut1_0p01 - single_mut: mean delta +0.0012, improved 37/100, wilcoxon p=0.3309, paired t p=0.637
+- mut1_top50 - single_mut: mean delta +0.0047, improved 53/100, wilcoxon p=0.1585, paired t p=0.2545
+- mut1_top50 - mut1_0p01: mean delta +0.0036, improved 49/100, wilcoxon p=0.7951, paired t p=0.4124
