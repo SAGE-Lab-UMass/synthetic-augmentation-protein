@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+.DS_Store
+
+slurm-*.out
+slurm-*.err
+
+.ipynb_checkpoints/
+*.pdf
+*.png
+*.csv
+*.sh
+*.md
+*.txt
+figures
